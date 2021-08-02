@@ -101,8 +101,11 @@
 
       class Juego {
         constructor() {
+         setTimeout(() => {  
           this.inicializar()
-          this.puntogenerarSecuencia()
+          this.generarSecuencia()
+          this.siguienteNivel()
+         }, 500)
         }
 
         inicializar() {
