@@ -109,7 +109,15 @@
         }
 
         inicializar() {
+          this.siguienteNivel = this.siguienteNivel.bind(this)
+          this.elegirColor = this.elegirColor.bind(this)
           btnEmpezar.classList.add('hide')
+          this.nivel = 7
+          this.colores = {
+              celeste,
+              violeta,
+              naranja,
+              verde
         }
         generarSecuencia() {
             this.secuencia = new Array(10).fill(0).map(n => Math.floor(Math.random() * 4))
