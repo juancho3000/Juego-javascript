@@ -119,6 +119,15 @@
               naranja,
               verde
         }
+          
+         togglebtnEmpezar(){
+          if(btnEmpezar.classList.contains('hide')) {
+            betnEmpezar.classList.remove('hide')
+          } else {
+            btnEmpezar.classList.add('hide')
+          }
+        }
+       
         generarSecuencia() {
             this.secuencia = new Array(10).fill(0).map(n => Math.floor(Math.random() * 4))
         }
