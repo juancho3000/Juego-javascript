@@ -92,6 +92,7 @@
       <div id="verde" class="color verde right" data-color="verde"></div>
       <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script>
       const celeste = document.getElementById('celeste')
       const violeta = document.getElementById('violeta')
@@ -101,6 +102,7 @@
 
       class Juego {
         constructor() {
+         this.inicializar = this.inicializar.bind(this)
          setTimeout(() => {  
           this.inicializar()
           this.generarSecuencia()
@@ -202,9 +204,22 @@
             }
           }
          } else {
+           this.perdioEljuego()
            //perdio
          }
         }
+          ganoEljuego() {
+          swal('Platzi', 'Felicitaciones, ganaste el juego!', 'Success')
+          .then(this.inicializar)
+          }
+          perdioEljuego() {
+          swal('Platzi', 'Lo lamento, perdiste, pero sigue intentando', 'Fail')
+          .then (() => {
+            this.eliminarEventosClick()
+            this.inicializar()
+          })
+        }
+          
       }
          
       function empezarJuego() {
